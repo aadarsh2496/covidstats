@@ -8,6 +8,10 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 import Columns from "react-columns";
 import Form from "react-bootstrap/Form"
+function formatDate(string){
+    var options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric'};
+    return new Date(string).toLocaleDateString([],options);
+}
 function App() {
   const [latest, setLatest] = useState("");
   const[results,setResults] = useState([]);
@@ -48,14 +52,17 @@ const countries = filterCountries.map((data, index) => {
     <Card.Img variant = "top" src ={data.countryInfo.flag}/>
     <Card.Body>
       <Card.Title>{data.country.toUpperCase()}</Card.Title>
-      <Card.Text>Cases{data.cases}</Card.Text>
-      <Card.Text>Deaths{data.deaths}</Card.Text>
-      <Card.Text>Recovered{data.recovered}</Card.Text>
-      <Card.Text>Today's Cases{data.todayCases}</Card.Text>
-      <Card.Text>Today's Deaths{data.todayDeaths}</Card.Text>
-      <Card.Text>Active{data.active}</Card.Text>
-      <Card.Text>Critical{data.critical}</Card.Text>
+      <Card.Text>Total Cases: {data.cases}</Card.Text>
+      <Card.Text>Deaths reported: {data.deaths}</Card.Text>
+      <Card.Text>Recovered cases: {data.recovered}</Card.Text>
+      <Card.Text>Today's Cases: {data.todayCases}</Card.Text>
+      <Card.Text>Today's Deaths: {data.todayDeaths}</Card.Text>
+      <Card.Text>Active Cases: {data.active}</Card.Text>
+      <Card.Text>Critical Cases: {data.critical}</Card.Text>
     </Card.Body>
+    <Card.Footer>
+      <small>Last updated: {formatDate(data.updated)}.</small>
+    </Card.Footer>
     </Card>
   );
 });
@@ -84,7 +91,7 @@ style={{ margin: "10px" }}
     </Card.Text>
   </Card.Body>
   <Card.Footer>
-    <small>Last updated: {lastUpdated}.</small>
+    <small>Last updated: {formatDate(latest.updated)}.</small>
   </Card.Footer>
 </Card>
 <Card
@@ -100,7 +107,7 @@ style={{ margin: "10px" }}
     </Card.Text>
   </Card.Body>
   <Card.Footer>
-    <small>Last updated: {lastUpdated}.</small>
+    <small>Last updated: {formatDate(latest.updated)}.</small>
   </Card.Footer>
 </Card>
 <Card
@@ -116,7 +123,7 @@ style={{ margin: "10px" }}
     </Card.Text>
   </Card.Body>
   <Card.Footer>
-    <small>Last updated {lastUpdated}.</small>
+    <small>Last updated {formatDate(latest.updated)}.</small>
   </Card.Footer>
 </Card>
 </CardDeck>
@@ -125,7 +132,7 @@ style={{ margin: "10px" }}
   <Form.Group controlId="formGroupSearch">
     <Form.Control
     type="text"
-    placeholder="Country's Name"
+    placeholder="Enter Country's name"
     onChange = {e=> setSearchCountries(e.target.value.toLowerCase())}
     style={{ width: "230px" }}
     />
