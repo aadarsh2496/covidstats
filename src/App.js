@@ -52,6 +52,7 @@ const countries = filterCountries.map((data, index) => {
       <Card.Img variant = "top" src ={data.countryInfo.flag}/>
       <Card.Body>
         <Card.Title>{data.country.toUpperCase()}</Card.Title>
+        <Card.Text>Click <a href = "https://aadarsh2496.github.io/covidinindia/">here</a> to view live state wise report in India</Card.Text>
         <Card.Text>Total Cases: {data.cases}</Card.Text>
         <Card.Text>Deaths reported: {data.deaths}</Card.Text>
         <Card.Text>Recovered cases: {data.recovered}</Card.Text>
@@ -63,10 +64,9 @@ const countries = filterCountries.map((data, index) => {
         <Card.Text>Deaths per OneMillion: {data.deathsPerOneMillion}</Card.Text>
         <Card.Text>Total Tests conducted: {data.tests}</Card.Text>
         <Card.Text>Tests Per OneMillion: {data.testsPerOneMillion}</Card.Text>
-        <Card.Text>Visit(http://aadarsh2496.github.io/covidinindia/) to view state wise case.</Card.Text>
       </Card.Body>
       <Card.Footer>
-        <small>Last updated: {formatDate(data.updated)}.</small>
+        <small>Last updatedat : {formatDate(data.updated)}.</small>
       </Card.Footer>
       </Card>
     );
