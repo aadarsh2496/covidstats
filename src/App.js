@@ -96,7 +96,7 @@ const countries = filterCountries.map((data, index) => {
       <Card.Text>Tests Per OneMillion: {data.testsPerOneMillion}</Card.Text>
     </Card.Body>
     <Card.Footer>
-      <small>Last updated: {formatDate(data.updated)}.</small>
+      <small>Last updated at: {formatDate(data.updated)}.</small>
     </Card.Footer>
     </Card>
   );
@@ -127,11 +127,11 @@ style={{ margin: "10px" }}
       Total: {latest.cases}
     </Card.Text>
     <Card.Text>
-      Today's Cases Resported: {latest.todayCases}
+      Today's Cases Reported: {latest.todayCases}
     </Card.Text>
   </Card.Body>
   <Card.Footer>
-    <small>Last updated: {formatDate(latest.updated)}.</small>
+    <small>Last updated at: {formatDate(latest.updated)}.</small>
   </Card.Footer>
 </Card>
 <Card
@@ -146,11 +146,11 @@ style={{ margin: "10px" }}
       {latest.deaths}
     </Card.Text>
     <Card.Text>
-      Today's Deaths Resported: {latest.todayDeaths}
+      Today's Deaths Reported: {latest.todayDeaths}
     </Card.Text>
   </Card.Body>
   <Card.Footer>
-    <small>Last updated: {formatDate(latest.updated)}.</small>
+    <small>Last updated at: {formatDate(latest.updated)}.</small>
   </Card.Footer>
 </Card>
 <Card
@@ -160,7 +160,7 @@ className="text-center"
 style={{ margin: "10px" }}
 >
   <Card.Body>
-    <Card.Title>World Recovered</Card.Title>
+    <Card.Title>World Recovered Cases</Card.Title>
     <Card.Text>
       {latest.recovered}
     </Card.Text>
